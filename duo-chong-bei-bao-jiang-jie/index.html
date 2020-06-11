@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="向着自己的梦想，前进！">
+<meta name="theme-color" content="#000">
+<title>多重背包讲解 | TNTの小窝</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1591884044778">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/media/css/pisces.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css" rel="stylesheet">  
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+
+    <meta name="description" content="多重背包讲解" />
+    <meta name="keywords" content="笔记" />
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" pisces">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>TNTの小窝</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">向着自己的梦想，前进！</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/archives" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/tags" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="https://TNTtian.github.io/tnt-nogarbage-zhu-ye" target="_self">
+                  <i class="fa fa-globe"></i> 个人主页
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout pisces ">
+        <div class="section-layout-wrapper">
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://TNTtian.github.io/images/avatar.png"/>
+    <p class="site-author-name">TNTの小窝</p>
+    <p class="site-description right-motion">向着自己的梦想，前进！</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://TNTtian.github.io/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/TNTtian/">
+              <i class="fa fa-github-alt"></i> github
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
+
+
+  <div class="sidebar-item right-motion sidebar-item-friends">
+    <p class="friends-title"><i class="fa fa-globe"></i> 珂愛友链呢~</p>
+    <div class="friends-box">
+      
+        <p>
+          <a href="https://lbn233.github.io/">【Baylor】</a>
+        </p>
+      
+        <p>
+          <a href="https://www.billy2007.tk/">【Billy2007】</a>
+        </p>
+      
+    </div>
+  </div>
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number compress" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85">多重背包</a>
+<ul>
+<li><a href="#p5664-%E5%AE%9D%E7%89%A9%E7%AD%9B%E9%80%89"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>5664</mn><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P5664\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">5</span><span class="mord">6</span><span class="mord">6</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 宝物筛选</a>
+<ul>
+<li><a href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85">多重背包（完全背包）</a></li>
+<li><a href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%850-1%E8%83%8C%E5%8C%85">多重背包（0-1背包）</a></li>
+<li><a href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%850-1%E8%83%8C%E5%8C%85%E4%BC%98%E5%8C%96-%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E6%A8%A1%E6%9D%BF">多重背包（0-1背包优化 \ 多重背包模板）</a></li>
+</ul>
+</li>
+<li><a href="#p2851the-fewest-coins"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>2851</mn><mtext>  </mtext><mtext>  </mtext><mtext> </mtext><mi>T</mi><mi>h</mi><mi>e</mi><mtext> </mtext><mi>F</mi><mi>e</mi><mi>w</mi><mi>e</mi><mi>s</mi><mi>t</mi><mtext> </mtext><mi>C</mi><mi>o</mi><mi>i</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">P2851\;\;\,The\ Fewest\ Coins</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">2</span><span class="mord">8</span><span class="mord">5</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span></span></span></span></a><br>
+*
+<ul>
+<li><a href="#1-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E5%BA%97%E4%B8%BB%E6%89%BE%E9%9B%B6">1. 完全背包(店主找零)</a></li>
+<li><a href="#2-%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85john%E4%BB%98%E6%AC%BE">2. 多重背包(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mi>o</mi><mi>h</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">John</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault">o</span><span class="mord mathdefault">h</span><span class="mord mathdefault">n</span></span></span></span>付款)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9D%90%E6%A0%87%E4%B8%8E%E6%A3%8B%E7%9B%98%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98">坐标与棋盘型动态规划问题</a>
+<ul>
+<li><a href="#p1130-%E7%BA%A2%E7%89%8C"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>1130</mn><mtext>  </mtext><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P1130\;\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">1</span><span class="mord">1</span><span class="mord">3</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 红牌</a></li>
+<li><a href="#p1004-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>1004</mn><mtext>  </mtext><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P1004\;\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 方格取数</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/">
+      多重背包讲解
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-05-31</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://TNTtian.github.io/tag/D8ApTV0KL/">
+              <span>笔记</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>10分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1647<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <h1 id="多重背包">多重背包</h1>
+<h2 id="p5664-宝物筛选"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>5664</mn><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P5664\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">5</span><span class="mord">6</span><span class="mord">6</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 宝物筛选</h2>
+<h3 id="多重背包完全背包">多重背包（完全背包）</h3>
+<pre><code class="language-cpp">A A A T T T T T T T
+</code></pre>
+<ol>
+<li>状态表示</li>
+</ol>
+<p>dp[i][j]表示前i种物品在背包容量为j时能装下物品的最大价值</p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mi>k</mi><mo separator="true">⋅</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>k</mi><mo>×</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mi>m</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">⋅</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>m</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>×</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">dp[i][j] = \begin{cases} 
+dp[i - 1][j] \\  
+dp[i][j - w[i]] + p[i] \\
+\cdots \\
+dp[i - 1][j - k·w[i]] + k \times p[i] \\
+\cdots \\
+dp[i - 1][j - m[i]·w[i]] + m[i] \times p[i]
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:8.64em;vertical-align:-4.07em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.4500199999999985em;"><span style="top:-0.09998999999999958em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-0.09998999999999958em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.3999899999999994em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.6999899999999992em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.999989999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.299989999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.5999899999999991em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.8999899999999992em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-2.1999899999999992em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-3.1500099999999995em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.300009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.600009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.900009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.200009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.50001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.8000099999999986em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.100009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.400009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.7000199999999985em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.9500200000000003em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.570000000000001em;"><span style="top:-6.570000000000002em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span><span style="top:-5.130000000000002em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span><span style="top:-3.6900000000000013em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="minner">⋯</span></span></span><span style="top:-2.250000000000001em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span><span style="top:-0.8100000000000006em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="minner">⋯</span></span></span><span style="top:0.6300000000000002em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">m</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">m</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:4.07em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">dp[0][0] = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#define NT 105
+#define WT 40005
+using namespace std;
+int n, v, p[NT], w[NT], m[NT], ans, dp[NT][WT];
+int main()
+{
+	cin &gt;&gt; n &gt;&gt; v;
+	for(int i = 1; i &lt;= n; i++)
+		cin &gt;&gt; p[i] &gt;&gt; w[i] &gt;&gt; m[i];
+	dp[0][0] = 0; 
+	for(int i = 1; i &lt;= n; i++)
+		for(int j = 0; j &lt;= v; j++)
+			for(int k = 0; k &lt;= m[i]; k++)
+				if(j &gt;= k * w[i]) dp[i][j] = max(dp[i][j], dp[i - 1][j - k * w[i]] + k * p[i]);
+ 	cout &lt;&lt; dp[n][v] &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+<h3 id="多重背包0-1背包">多重背包（0-1背包）</h3>
+<pre><code class="language-cpp">A A A T T T T T T T
+</code></pre>
+<ol>
+<li>状态表示</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示前i个物品在背包容量为j时能装下物品的最大价值</p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">dp[i][j] = \begin{cases} 
+dp[i - 1][j] \\  
+dp[i][j - w[i]] + p[i]
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">dp[0][0] = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#define NT 105
+#define WT 40005
+#define NW 1000005
+using namespace std;
+int n, v, a, b, c, cnt, p[NW], w[NW], dp[NW];
+int main()
+{
+	cin &gt;&gt; n &gt;&gt; v;
+	for(int i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+		for(int j = 1; j &lt;= c; j++)
+		{
+			p[++cnt] = a;
+			w[cnt] = b;
+		}
+	}
+	for(int i = 1; i &lt;= cnt; i++)
+		for(int j = v; j &gt;= w[i]; j--)
+			dp[j] = max(dp[j], dp[j - w[i]] + p[i]);
+	cout &lt;&lt; dp[v] &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+<h3 id="多重背包0-1背包优化-多重背包模板">多重背包（0-1背包优化 \ 多重背包模板）</h3>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#define NR 105
+#define WR 40005
+#define NW 100005
+using namespace std;
+int n, v, a, b, c, cnt, p[NW], w[NW], dp[NW];
+int main()
+{
+	cin &gt;&gt; n &gt;&gt; v;
+	for(int i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+		for(int j = 1; j &lt;= c; j *= 2)
+		{
+			p[++cnt] = j * a;
+			w[cnt] = j * b;
+			c -= j;
+		}
+		if(c)
+		{
+			p[++cnt] = c * a;
+			w[cnt] = c * b;
+		}
+	}
+	for(int i = 1; i &lt;= cnt; i++)
+		for(int j = v; j &gt;= w[i]; j--)
+			dp[j] = max(dp[j], dp[j - w[i]] + p[i]);
+	cout &lt;&lt; dp[v] &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+<h2 id="p2851the-fewest-coins"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>2851</mn><mtext>  </mtext><mtext>  </mtext><mtext> </mtext><mi>T</mi><mi>h</mi><mi>e</mi><mtext> </mtext><mi>F</mi><mi>e</mi><mi>w</mi><mi>e</mi><mi>s</mi><mi>t</mi><mtext> </mtext><mi>C</mi><mi>o</mi><mi>i</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">P2851\;\;\,The\ Fewest\ Coins</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">2</span><span class="mord">8</span><span class="mord">5</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span></span></span></span></h2>
+<h4 id="1-完全背包店主找零">1. 完全背包(店主找零)</h4>
+<ol>
+<li>状态表示</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>2</mn><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp2[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>表示店主付款i元时的最小硬币数</p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>2</mn><mo>[</mo><mi>i</mi><mo>]</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo>(</mo><mi>d</mi><mi>p</mi><mn>2</mn><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mn>2</mn><mo>[</mo><mi>i</mi><mo>−</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">dp2[i] = \min(dp2[i], dp2[i - w[i]] + p[i])
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">dp[0] = 1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
+<h4 id="2-多重背包john付款">2. 多重背包(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mi>o</mi><mi>h</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">John</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault">o</span><span class="mord mathdefault">h</span><span class="mord mathdefault">n</span></span></span></span>付款)</h4>
+<ol>
+<li>状态表示</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>1</mn><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp1[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>表示<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mi>o</mi><mi>h</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">John</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault">o</span><span class="mord mathdefault">h</span><span class="mord mathdefault">n</span></span></span></span>付款i元时的最小硬币数</p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>1</mn><mo>[</mo><mi>i</mi><mo>]</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo>(</mo><mi>d</mi><mi>p</mi><mn>1</mn><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mn>1</mn><mo>[</mo><mi>i</mi><mo>−</mo><mi>w</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>+</mo><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">dp1[i] = \min(dp1[i], dp1[i - w[i]] + p[i])
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>m</mi><mi>s</mi><mi>e</mi><mi>t</mi><mo>(</mo><mi>d</mi><mi>p</mi><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mi>x</mi><mn>3</mn><mi>f</mi><mo separator="true">,</mo><mi>s</mi><mi>i</mi><mi>z</mi><mi>e</mi><mi>o</mi><mi>f</mi><mo>(</mo><mi>d</mi><mi>p</mi><mn>1</mn><mo>)</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">memset(dp1, 0x3f, sizeof(dp1));
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord mathdefault">x</span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">e</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mclose">)</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>m</mi><mi>s</mi><mi>e</mi><mi>t</mi><mo>(</mo><mi>d</mi><mi>p</mi><mn>2</mn><mo separator="true">,</mo><mn>0</mn><mi>x</mi><mn>3</mn><mi>f</mi><mo separator="true">,</mo><mi>s</mi><mi>i</mi><mi>z</mi><mi>e</mi><mi>o</mi><mi>f</mi><mo>(</mo><mi>d</mi><mi>p</mi><mn>2</mn><mo>)</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">memset(dp2, 0x3f,sizeof(dp2));
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord mathdefault">x</span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">e</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mclose">)</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>1</mn><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp1[0] = 0;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">1</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mpunct">;</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mn>2</mn><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp2[0] = 0;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mord">2</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mpunct">;</span></span></span></span></span></p>
+<h1 id="坐标与棋盘型动态规划问题">坐标与棋盘型动态规划问题</h1>
+<h2 id="p1130-红牌"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>1130</mn><mtext>  </mtext><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P1130\;\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">1</span><span class="mord">1</span><span class="mord">3</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 红牌</h2>
+<ol>
+<li>状态表示</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示第i个小组完成步骤j所用的最小时间</p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">dp[i][j] = \begin{cases} 
+dp[i - 1][j - 1] + a[i][j] \\  
+dp[i][j - 1] +a[i][j]
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo>(</mo><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>)</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp[i][j] = \min(dp[i - 1][j - 1], dp[i][j - 1]) + a[i][j]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mn>0</mn><mo>]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">dp[0][0] = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<h2 id="p1004-方格取数"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>1004</mn><mtext>  </mtext><mtext>  </mtext></mrow><annotation encoding="application/x-tex">P1004\;\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span> 方格取数</h2>
+<ol>
+<li>状态表示</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">F[i][j][k][l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span>表示第一条路线走到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>，第二条路线走到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>k</mi><mo separator="true">,</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(k, l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span>时所取数字和的最大值</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>f</mi><mo>(</mo><mi>i</mi><mo>=</mo><mo>=</mo><mi>k</mi><mtext> </mtext><mi mathvariant="normal">&amp;</mi><mi mathvariant="normal">&amp;</mi><mtext> </mtext><mi>j</mi><mo>=</mo><mo>=</mo><mi>l</mi><mo>)</mo><mspace width="2em"/><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo><mtext> </mtext><mo>−</mo><mtext> ⁣</mtext><mtext> ⁣</mtext><mo>=</mo><mtext> </mtext><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">if(i == k \  \&amp;\&amp;\  j == l)\qquad F[i][j][k][l]\  -\!\!= \ a[i][j]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace"> </span><span class="mord">&amp;</span><span class="mord">&amp;</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mspace"> </span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:-0.16666666666666666em;"></span><span class="mspace" style="margin-right:-0.16666666666666666em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span></span></p>
+<ol start="2">
+<li>状态转移</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><munder><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><mo stretchy="true">⎵</mo></munder></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr></mtable><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><munder><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow><mo stretchy="true">⎵</mo></munder></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd></mtr></mtable><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><munder><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><mo stretchy="true">⎵</mo></munder></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>3</mn></mstyle></mtd></mtr></mtable><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><munder><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow><mo stretchy="true">⎵</mo></munder></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>4</mn></mstyle></mtd></mtr></mtable><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">F[i][j][k][l] = \begin{cases}
+\begin{matrix}\underbrace{F[i][j - 1][k][l - 1]}\\1\end{matrix}  + 
+a[i][j] + a[k][l]\\
+\begin{matrix}\underbrace{F[i][j - 1][k - 1][l]}\\2\end{matrix}  + 
+a[i][j] + a[k][l]\\
+\begin{matrix}\underbrace{F[i - 1][j][k][l - 1]}\\3\end{matrix}+ 
+a[i][j] + a[k][l] \\
+\begin{matrix}\underbrace{F[i - 1][j][k - 1][l]}\\4\end{matrix} + 
+a[i][j] + a[k][l]
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:11.752000000000002em;vertical-align:-5.626000000000002em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.950019999999997em;"><span style="top:1.4000100000000004em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:1.4000100000000004em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:1.1000100000000006em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:0.8000100000000008em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:0.500010000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:0.20001000000000113em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.09998999999999869em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.3999899999999985em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.6999899999999983em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.9999899999999982em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.2999899999999982em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.5999899999999982em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.8999899999999983em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-2.1999899999999983em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-3.1500099999999986em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.3000099999999986em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.600009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.900009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.200009999999999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.500009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.8000099999999986em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.1000099999999975em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.400009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.700009999999997em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-7.000009999999998em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-7.300009999999997em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-7.6000099999999975em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-7.900009999999996em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-8.200019999999997em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.45002em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:6.1259999999999994em;"><span style="top:-8.126000000000001em;"><span class="pstrut" style="height:3.719em;"></span><span class="mord"><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7189999999999999em;"><span style="top:-3.879em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span class="svg-align" style="top:-2.102em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.898em;"><span></span></span></span></span></span></span></span><span style="top:-2.1409999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2190000000000003em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span><span style="top:-5.187999999999999em;"><span class="pstrut" style="height:3.719em;"></span><span class="mord"><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7189999999999999em;"><span style="top:-3.879em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span class="svg-align" style="top:-2.102em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.898em;"><span></span></span></span></span></span></span></span><span style="top:-2.1409999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2190000000000003em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span><span style="top:-2.2499999999999973em;"><span class="pstrut" style="height:3.719em;"></span><span class="mord"><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7189999999999999em;"><span style="top:-3.879em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span class="svg-align" style="top:-2.102em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.898em;"><span></span></span></span></span></span></span></span><span style="top:-2.1409999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2190000000000003em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span><span style="top:0.6880000000000019em;"><span class="pstrut" style="height:3.719em;"></span><span class="mord"><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7189999999999999em;"><span style="top:-3.879em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span class="svg-align" style="top:-2.102em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.898em;"><span></span></span></span></span></span></span></span><span style="top:-2.1409999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2190000000000003em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.626000000000002em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo>)</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">F[i][j][k][l] = \max(1,2,3,4) + a[i][j] + a[k][l]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span></span></p>
+<ol start="3">
+<li>初始状态</li>
+</ol>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F[i][j][k][l] = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#define NR 10
+using namespace std;
+int n, x, y, num, a[NR][NR], f[NR][NR][NR][NR]; 
+int main()
+{
+	cin &gt;&gt; n;
+	while(1)
+	{
+		cin &gt;&gt; x &gt;&gt; y &gt;&gt; num;
+		if(x == 0 &amp;&amp; y == 0 &amp;&amp; num == 0)
+			break;
+		a[x][y] = num; 
+	}
+	for(int i = 1; i &lt;= n; i++)
+		for(int j = 1; j &lt;= n; j++)
+			for(int k = 1; k &lt;= n; k++)
+				for(int l = 1; l &lt;= n; l++)
+					{
+						f[i][j][k][l] = max(max(f[i][j - 1][k][l - 1], f[i][j - 1][k - 1][l]), 
+						max(f[i - 1][j][k][l - 1], f[i - 1][j][k - 1][l])) + a[i][j] + a[k][l];
+						if(i == k &amp;&amp; j == l) f[i][j][k][l] -= a[i][j];
+					}
+	cout &lt;&lt; f[n][n][n][n] &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      TNTの小窝
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/" title="多重背包讲解">多重背包讲解</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://TNTtian.github.io/tag/D8ApTV0KL/"># 笔记</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="【pj复习】深搜——拿部分分" href="https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/">【pj复习】深搜——拿部分分</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="【pj复习】深搜——拿部分分" href="https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="【pj复习】深搜——简单剪枝 " href="https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/">【pj复习】深搜——简单剪枝 </a>
+        <a class="nav-mobile-next" title="【pj复习】深搜——简单剪枝 " href="https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+              
+                
+              
+<script src="https://utteranc.es/client.js"
+        repo="TNTtian/TNTtian.github.io"
+        issue-term="pathname"
+        label="filter"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://tnttian.github.io/" target="_blank">TNT</a>
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+    <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />
+<div class="box-scale">
+  <div id="landlord" style="left:5px;bottom:0px;" data-key="">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+      <div class="live_talk_input_name_body">
+        <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+      </div>
+      <div class="live_talk_input_text_body">
+        <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+        <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+      </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+      <div class="live_ico_item type_info" id="showInfoBtn"></div>
+      <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+      
+      <div class="live_ico_item type_youdu" id="youduButton"></div>
+      <div class="live_ico_item type_quit" id="hideButton"></div>
+      <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+      <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+      <input id="duType" value="douqilai" type="hidden">
+      
+    </div>
+  </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+var message_Path = '/media/live2d/histoire/';
+let landlord = document.querySelector('#landlord');
+var apiKey = landlord.dataset.key;
+</script>
+<script type="text/javascript" src="/media/live2d/histoire/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/histoire/js/message.js"></script>
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>
