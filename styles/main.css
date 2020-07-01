@@ -2107,7 +2107,9 @@ pre > span.copy-code:hover {
 .hljs-strong {
   font-weight: bold;
 }
-body {
+.bg-color .bg-color {
+      background: transparent !important;
+    }body {
       background-color: #eee;
     }.header {
         width: 960px;
@@ -2128,7 +2130,7 @@ body {
       border-bottom-color: #555;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #eeeeeefe;
+      background: #eeeeeecc;
     }h1, h2, h3, h4, h5, h6 {
       color: #555;
     }
@@ -2175,11 +2177,11 @@ body {
       }.nav-item a:hover {
         color: #222;
       }.nav-item-active {
-      background: #f9f9f9fe;
+      background: #f9f9f9cc;
     }
 
     .nav-item:hover {
-      background: #f9f9f9fe;
+      background: #f9f9f9cc;
       color: rgba(0, 0, 0, 0.98);
     }.site-author-image {
       border-radius: 50%;
@@ -2214,8 +2216,10 @@ body {
     .active-hidden > a {
       color: #fc6423;
       border-bottom-color: #fc6423;
-    }.bg-color {
-      background-color: #fffffffe;
+    }.reward-btn-text {
+        background-color: #f03e3ecc !important;
+      }.bg-color {
+      background-color: #ffffffcc;
     }
     .site-meta {
       background: #000 !important;
@@ -2224,13 +2228,13 @@ body {
       background: #000;
     }
     .brand {
-      background: #000000fe;
+      background: #000000cc;
     }
     .main-title, .brand {
       color: #FFF !important;
     }
     .mist .site-title i {
-      background: #FFFFFFfe;
+      background: #FFFFFFcc;
     }.box-scale > #landlord {
       transform: scale([0, 1]);
     }.box-shadow-wrapper {
