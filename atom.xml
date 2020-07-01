@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://TNTtian.github.io</id>
     <title>TNTの小窝</title>
-    <updated>2020-07-01T03:44:27.072Z</updated>
+    <updated>2020-07-01T03:53:40.500Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://TNTtian.github.io"/>
     <link rel="self" href="https://TNTtian.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://TNTtian.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TNTの小窝</rights>
     <entry>
-        <title type="html"><![CDATA[【pj复习】深搜——拿部分分]]></title>
+        <title type="html"><![CDATA[【笔记】「pj复习」深搜——拿部分分]]></title>
         <id>https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/</id>
         <link href="https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/">
         </link>
@@ -24,14 +24,14 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[多重背包讲解]]></title>
+        <title type="html"><![CDATA[【笔记】多重背包讲解]]></title>
         <id>https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/</id>
         <link href="https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/">
         </link>
         <updated>2020-05-31T07:02:22.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[【pj复习】深搜——简单剪枝 ]]></title>
+        <title type="html"><![CDATA[【笔记】「pj复习」深搜——简单剪枝 ]]></title>
         <id>https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/</id>
         <link href="https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/">
         </link>
@@ -46,7 +46,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[【题解】『洛谷』P1518 [USACO2.4]两只塔姆沃斯牛 The Tamworth Two]]></title>
+        <title type="html"><![CDATA[【题解】「P1518」 [USACO2.4]两只塔姆沃斯牛 The Tamworth Two]]></title>
         <id>https://TNTtian.github.io/u-ti-jie-luo-gp1518-usaco24liang-zhi-ta-mu-wo-si-niu-the-tamworth-two/</id>
         <link href="https://TNTtian.github.io/u-ti-jie-luo-gp1518-usaco24liang-zhi-ta-mu-wo-si-niu-the-tamworth-two/">
         </link>
@@ -55,27 +55,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>很显然，纯模拟！</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[TNT 的日记]]></title>
-        <id>https://TNTtian.github.io/TNT-Diary/</id>
-        <link href="https://TNTtian.github.io/TNT-Diary/">
-        </link>
-        <updated>2020-05-13T10:33:00.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[_TNT_のGarbage主页]]></title>
-        <id>https://TNTtian.github.io/tnt-nogarbage-zhu-ye/</id>
-        <link href="https://TNTtian.github.io/tnt-nogarbage-zhu-ye/">
-        </link>
-        <updated>2020-05-13T09:25:29.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Template practice]]></title>
-        <id>https://TNTtian.github.io/template-practice/</id>
-        <link href="https://TNTtian.github.io/template-practice/">
-        </link>
-        <updated>2020-05-12T09:16:30.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[杀蚂蚁]]></title>
