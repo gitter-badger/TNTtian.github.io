@@ -2240,7 +2240,7 @@ pre > span.copy-code:hover {
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: default;
+      cursor: url('/media/curs/https://files-cdn.cnblogs.com/files/Xing-Ling/Aero_arrow.ico.cur'), default;
     }a {
       cursor: pointer;
     }input, textarea, code {
