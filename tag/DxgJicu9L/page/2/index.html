@@ -5,7 +5,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>CF | Trotyl°&#39;s House</title>	
+<title>题解 | Trotyl°&#39;s House</title>	
 
 <link rel="stylesheet" href="https://TNTtian.github.io/styles/main.css">
 <script type="text/javascript">
@@ -151,7 +151,7 @@ window.onload=getCSS();
 		<div class="wow slideInLeft archive-box">
 			  <header class="page-header">
 				  
-				<h1 class="page-title">CF</h1> 
+				<h1 class="page-title">题解</h1> 
 
 </header>
 			</div>	
@@ -162,25 +162,24 @@ window.onload=getCSS();
 	 
 	   
 	<div class="entry-content">
-		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-cf675a/" rel="bookmark">【题解】「CF675A」Infinite Sequence</a></h1>
+		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-uva11626/" rel="bookmark">【题解】「UVA11626」Convex Hull</a></h1>
 		<div class="entry-meta">
-		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:17:59" itemprop="datePublished" pubdate="">2020-07-09</time></i>
+		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:13:00" itemprop="datePublished" pubdate="">2020-07-09</time></i>
 	 
 			
 		</div>
 
 		<div class="entry-summary jia">
-			<p>我用的是：分类讨论+暴力
-其中分类讨论中，我用了一种namespace名命名空间。如果：
+			<p>凸包模板题。
+之前写过拿 Graham 算法求凸包的，为了不重复/多学点知识，那这次拿 Andrew 算法求凸包吧qaq
+*此文章所有图片均为作者手画。
 
+Andrew 算法
+假设我们有这些点：
 
-c=0c = 0c=0 ：
-当 a==ba == ba==b 时，输出 YESYESYES 否则 NONONO
-
-
-c&lt;1c &lt; 1c...</p>
+首先把所有点以横坐标为第一关键字，纵坐标为...</p>
 			<p class="readmore">
-				<a href="https://TNTtian.github.io/solution-cf675a/" class="link-more">Read more</a>
+				<a href="https://TNTtian.github.io/solution-uva11626/" class="link-more">Read more</a>
 			</p>
 		</div>
 		
@@ -194,21 +193,29 @@ c&lt;1c &lt; 1c...</p>
 	 
 	   
 	<div class="entry-content">
-		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-cf1352a/" rel="bookmark">【题解】「CF1352A」Sum of Round Numbers</a></h1>
+		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-uva1149/" rel="bookmark">【题解】「UVA1149」装箱 Bin Packing</a></h1>
 		<div class="entry-meta">
-		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:17:20" itemprop="datePublished" pubdate="">2020-07-09</time></i>
+		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:12:01" itemprop="datePublished" pubdate="">2020-07-09</time></i>
 	 
 			
 		</div>
 
 		<div class="entry-summary jia">
-			<p>应该是纯模拟吧。
-直接输入一个字符串，然后一位一位看，如果不是0，就 k++，并计算这个数的真实的值，最后输出就行了。
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;...</p>
+			<p>做法显然：贪心，但是怎么贪？
+
+
+首先从大到小或从小到大排序，窝这次是从大到小排，这样更容易理解（从小到大更方变）
+
+
+然后设置两个变量 front 和 after 作为前指针和后指针。
+
+
+循环判断：
+
+
+当前后两个数能放入背包时，则 a...</p>
 			<p class="readmore">
-				<a href="https://TNTtian.github.io/solution-cf1352a/" class="link-more">Read more</a>
+				<a href="https://TNTtian.github.io/solution-uva1149/" class="link-more">Read more</a>
 			</p>
 		</div>
 		
@@ -222,21 +229,20 @@ c&lt;1c &lt; 1c...</p>
 	 
 	   
 	<div class="entry-content">
-		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-cf1182b/" rel="bookmark">【题解】「CF1182B」Plus from Picture</a></h1>
+		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-sp34013/" rel="bookmark">【题解】「SP34013」SEUG - Seetha’s Unique Game</a></h1>
 		<div class="entry-meta">
-		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:16:18" itemprop="datePublished" pubdate="">2020-07-09</time></i>
+		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:10:34" itemprop="datePublished" pubdate="">2020-07-09</time></i>
 	 
 			
 		</div>
 
 		<div class="entry-summary jia">
-			<p>这是一道超级水的模拟 + 简单搜索。
-说说思路：
-先找到中心点，就是自己和上下左右都为 * 的。
-上下左右上的所有 * 都删掉，然后再看看有没有多余的 * 如果有输出 NO 否则输出 YES。
-比如说有这样一个 n=5n = 5n=5 的图...</p>
+			<p>这道题一看就是 贪心 。
+使放的石头少，就需要石头大。
+那么就可以将石头重量排序，从大到小。
+这道题里面看似东西很多，但是很多东西都是没有用的。比如说：箱子的长和宽，因为题目中说「每加一个石头，水的高度就会增加那个石头的重量那么多。」，根本...</p>
 			<p class="readmore">
-				<a href="https://TNTtian.github.io/solution-cf1182b/" class="link-more">Read more</a>
+				<a href="https://TNTtian.github.io/solution-sp34013/" class="link-more">Read more</a>
 			</p>
 		</div>
 		
@@ -250,20 +256,20 @@ c&lt;1c &lt; 1c...</p>
 	 
 	   
 	<div class="entry-content">
-		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-cf1373b/" rel="bookmark">【题解】「CF1373B」01 Game</a></h1>
+		<h1 class="entry-title"><a href="https://TNTtian.github.io/solution-sp867/" rel="bookmark">【题解】「SP867」CUBES - Perfect Cubes</a></h1>
 		<div class="entry-meta">
-		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:15:15" itemprop="datePublished" pubdate="">2020-07-09</time></i>
+		<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-07-09 11:09:44" itemprop="datePublished" pubdate="">2020-07-09</time></i>
 	 
 			
 		</div>
 
 		<div class="entry-summary jia">
-			<p>这题好水，就是简单的模拟+字符串。
-Translation\sf TranslationTranslation
-给定一个 010101 串，如果 000 出现的次数和 111 出现的次数的最小值是奇数，输出 DA ，否则输出 NET
-多测。...</p>
+			<p>这道题明显是一道暴力。
+暴力枚举每一个 a,b,c,da, b, c, da,b,c,d
+所以我就写了一个暴力。每个 a,b,c,da, b, c, da,b,c,d 都从 111 枚举到 100100100
+#include&lt;ios...</p>
 			<p class="readmore">
-				<a href="https://TNTtian.github.io/solution-cf1373b/" class="link-more">Read more</a>
+				<a href="https://TNTtian.github.io/solution-sp867/" class="link-more">Read more</a>
 			</p>
 		</div>
 		
@@ -311,7 +317,11 @@ solution
 			</div> 
 			<nav class="navigation pagination" role="navigation">
 	
+														   
+		<div class="nav-links">
 			
+<a class="next page-numbers" href="https://TNTtian.github.io/tag/DxgJicu9L/page/3/">点击查看更多</a></div>
+		
 	</nav>	
     	<script type="text/javascript">
 //点击加载更多

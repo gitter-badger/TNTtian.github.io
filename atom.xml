@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://TNTtian.github.io</id>
     <title>Trotyl°&apos;s House</title>
-    <updated>2020-07-09T03:04:11.154Z</updated>
+    <updated>2020-07-09T03:21:15.022Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://TNTtian.github.io"/>
     <link rel="self" href="https://TNTtian.github.io/atom.xml"/>
@@ -12,84 +12,73 @@
     <icon>https://TNTtian.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl°&apos;s House</rights>
     <entry>
+        <title type="html"><![CDATA[【题解】「P1504」积木城堡]]></title>
+        <id>https://TNTtian.github.io/solution-p1504/</id>
+        <link href="https://TNTtian.github.io/solution-p1504/">
+        </link>
+        <updated>2020-07-09T03:19:35.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「CF675A」Infinite Sequence]]></title>
+        <id>https://TNTtian.github.io/solution-cf675a/</id>
+        <link href="https://TNTtian.github.io/solution-cf675a/">
+        </link>
+        <updated>2020-07-09T03:17:59.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「CF1352A」Sum of Round Numbers]]></title>
+        <id>https://TNTtian.github.io/solution-cf1352a/</id>
+        <link href="https://TNTtian.github.io/solution-cf1352a/">
+        </link>
+        <updated>2020-07-09T03:17:20.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「CF1182B」Plus from Picture]]></title>
+        <id>https://TNTtian.github.io/solution-cf1182b/</id>
+        <link href="https://TNTtian.github.io/solution-cf1182b/">
+        </link>
+        <updated>2020-07-09T03:16:18.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「CF1373B」01 Game]]></title>
+        <id>https://TNTtian.github.io/solution-cf1373b/</id>
+        <link href="https://TNTtian.github.io/solution-cf1373b/">
+        </link>
+        <updated>2020-07-09T03:15:15.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「UVA11626」Convex Hull]]></title>
+        <id>https://TNTtian.github.io/solution-uva11626/</id>
+        <link href="https://TNTtian.github.io/solution-uva11626/">
+        </link>
+        <updated>2020-07-09T03:13:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「UVA1149」装箱 Bin Packing]]></title>
+        <id>https://TNTtian.github.io/solution-uva1149/</id>
+        <link href="https://TNTtian.github.io/solution-uva1149/">
+        </link>
+        <updated>2020-07-09T03:12:01.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「SP34013」SEUG - Seetha’s Unique Game]]></title>
+        <id>https://TNTtian.github.io/solution-sp34013/</id>
+        <link href="https://TNTtian.github.io/solution-sp34013/">
+        </link>
+        <updated>2020-07-09T03:10:34.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「SP867」CUBES - Perfect Cubes]]></title>
+        <id>https://TNTtian.github.io/solution-sp867/</id>
+        <link href="https://TNTtian.github.io/solution-sp867/">
+        </link>
+        <updated>2020-07-09T03:09:44.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[【题解】「CF363A」Soroban]]></title>
         <id>https://TNTtian.github.io/solution-cf363a/</id>
         <link href="https://TNTtian.github.io/solution-cf363a/">
         </link>
         <updated>2020-07-09T02:50:57.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[友情链接]]></title>
-        <id>https://TNTtian.github.io/friend/</id>
-        <link href="https://TNTtian.github.io/friend/">
-        </link>
-        <updated>2020-07-06T02:37:02.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【置顶】关于本博客（FAQ）]]></title>
-        <id>https://TNTtian.github.io/FAQ/</id>
-        <link href="https://TNTtian.github.io/FAQ/">
-        </link>
-        <updated>2020-07-05T05:25:02.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「UVA681」Convex Hull Finding]]></title>
-        <id>https://TNTtian.github.io/solution-uva681/</id>
-        <link href="https://TNTtian.github.io/solution-uva681/">
-        </link>
-        <updated>2020-07-03T13:22:33.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【笔记】计算几何]]></title>
-        <id>https://TNTtian.github.io/bi-ji-ji-suan-ji-he/</id>
-        <link href="https://TNTtian.github.io/bi-ji-ji-suan-ji-he/">
-        </link>
-        <updated>2020-07-01T07:12:25.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【笔记】「pj复习」深搜——拿部分分]]></title>
-        <id>https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/</id>
-        <link href="https://TNTtian.github.io/pj-fu-xi-shen-sou-na-bu-fen-fen/">
-        </link>
-        <updated>2020-06-07T06:51:48.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="说在最前面">说在最前面</h2>
-<p>众所周知， NOIP pj 的第三题大部分都是 dp ，但是有可能在考场上想不到动态转移方程，所以我们就可以拿深搜骗分。</p>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="说在最前面">说在最前面</h2>
-<p>众所周知， NOIP pj 的第三题大部分都是 dp ，但是有可能在考场上想不到动态转移方程，所以我们就可以拿深搜骗分。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【笔记】多重背包讲解]]></title>
-        <id>https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/</id>
-        <link href="https://TNTtian.github.io/duo-chong-bei-bao-jiang-jie/">
-        </link>
-        <updated>2020-05-31T07:02:22.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【笔记】「pj复习」深搜——简单剪枝 ]]></title>
-        <id>https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/</id>
-        <link href="https://TNTtian.github.io/pj-fu-xi-shen-sou-jian-dan-jian-zhi/">
-        </link>
-        <updated>2020-05-31T06:49:30.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="深搜简单剪枝">深搜——简单剪枝</h2>
-<h3 id="说在最前面">说在最前面：</h3>
-<p>因为马上要 NOIP2020 了，所以菜鸡开始了复习qwq。</p>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="深搜简单剪枝">深搜——简单剪枝</h2>
-<h3 id="说在最前面">说在最前面：</h3>
-<p>因为马上要 NOIP2020 了，所以菜鸡开始了复习qwq。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「P1518」 [USACO2.4]两只塔姆沃斯牛 The Tamworth Two]]></title>
-        <id>https://TNTtian.github.io/u-ti-jie-luo-gp1518-usaco24liang-zhi-ta-mu-wo-si-niu-the-tamworth-two/</id>
-        <link href="https://TNTtian.github.io/u-ti-jie-luo-gp1518-usaco24liang-zhi-ta-mu-wo-si-niu-the-tamworth-two/">
-        </link>
-        <updated>2020-05-14T06:33:31.000Z</updated>
-        <summary type="html"><![CDATA[<p>很显然，纯模拟！</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>很显然，纯模拟！</p>
-]]></content>
     </entry>
 </feed>
