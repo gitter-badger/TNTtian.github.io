@@ -10,7 +10,7 @@
 ">
 <meta name="theme-color" content="#000">
 <title>Trotyl°&#39;s House</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1597655867611">
+<link rel="shortcut icon" href="/favicon.ico?v=1597658250287">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -142,7 +142,7 @@
               <li class="nav-item ">
                 <a href="/friends/" target="_blank">
                   
-                    <i class="fa fa-address-book"></i> 珂愛友链呢~
+                    <i class="fa fa-address-book"></i> Friend Link
                   
                 </a>
               </li>
@@ -206,7 +206,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -250,11 +250,6 @@
 
 
 
-  <div style="width: 100%; position: relative;">
-    <canvas id="canvasDiyBlock" style="width:100%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
-    <script src="/media/js/magic/clock.js"></script>
-  </div>
-
 </div>
 </div>
 <script>
@@ -279,7 +274,7 @@
   <div class="archive-timeline-box">
     <div class="archive-timeline-title">
       
-        <h2 class="language" data-lan="archives" data-count="18">非常好！目前共计18篇日志，继续努力！</h2>
+        <h2 class="language" data-lan="archives" data-count="17">非常好！目前共计17篇日志，继续努力！</h2>
       
     </div>
     
@@ -413,19 +408,6 @@
             <h1>
               07-09
               <small>【题解】「CF363A」Soroban</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://TNTtian.github.io/friend/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              07-06
-              <small>友情链接</small>
             </h1>
           </div>  
       </div>
@@ -607,7 +589,7 @@
     
   </div>
 </div>
-<div id="open_live2d">召唤妹子~</div>
+<div id="open_live2d">召唤看板娘</div>
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
   var message_Path = 'https://cdn.jsdelivr.net/gh/hsxyhao/live2d.github.io@master/';
@@ -1260,7 +1242,7 @@
   hljs.initHighlightingOnLoad();
   
   // 离开当前页title变化
-  var leaveTitle = "泥不要我了吗 QAQ";
+  var leaveTitle = "";
   if (leaveTitle) {
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState == 'hidden') {
@@ -2102,12 +2084,6 @@ int main () {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;谢谢。&lt;/p&gt;
 ">【题解】「CF363A」Soroban</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://TNTtian.github.io/friend/"" data-c="
-          &lt;p&gt;0&lt;/p&gt;
-">友情链接</a>
       </div>
       
       <div class="item">
@@ -3535,82 +3511,3 @@ int main() {
 
 
 </html>
-<script type="text/javascript">
-        ! function () {
-            function o(w, v, i) {
-                return w.getAttribute(v) || i
-            }
-            function j(i) {
-                return document.getElementsByTagName(i)
-            }
-            function l() {
-                var i = j("script"),
-                    w = i.length,
-                    v = i[w - 1];
-                return {
-                    l: w,
-                    z: o(v, "zIndex", -1),
-                    o: o(v, "opacity", 1),//透明度
-                    c: o(v, "color", "blue"),
-                    n: o(v, "count", 150)
-                }
-            }
-            function k() {
-                r = u.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, n = u.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-            }
-            function b() {
-                e.clearRect(0, 0, r, n);
-                var w = [f].concat(t);
-                var x, v, A, B, z, y;
-                t.forEach(function (i) {
-                    i.x += i.xa, i.y += i.ya, i.xa *= i.x > r || i.x < 0 ? -1 : 1, i.ya *= i.y > n || i.y < 0 ? -1 : 1, e.fillRect(i.x - 0.5, i.y - 0.5, 1, 1);
-                    for (v = 0; v < w.length; v++) {
-                        x = w[v];
-                        if (i !== x && null !== x.x && null !== x.y) {
-                            B = i.x - x.x, z = i.y - x.y, y = B * B + z * z;
-                            y < x.max && (x === f && y >= x.max / 2 && (i.x -= 0.03 * B, i.y -= 0.03 * z), A = (x.max - y) / x.max, e.beginPath(), e.lineWidth = A / 2, e.strokeStyle = "rgba(" + s.c + "," + (A + 0.2) + ")", e.moveTo(i.x, i.y), e.lineTo(x.x, x.y), e.stroke())
-                        }
-                    }
-                    w.splice(w.indexOf(i), 1)
-                }), m(b)
-            }
-            var u = document.createElement("canvas"),
-                s = l(),
-                c = "c_n" + s.l,
-                e = u.getContext("2d"),
-                r, n, m = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (i) {
-                    window.setTimeout(i, 1000 / 45)
-                },
-                a = Math.random,
-                f = {
-                    x: null,
-                    y: null,
-                    max: 20000
-                };
-            u.id = c;
-            u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o;
-            j("body")[0].appendChild(u);
-            k(), window.onresize = k;
-            window.onmousemove = function (i) {
-                i = i || window.event, f.x = i.clientX, f.y = i.clientY
-            }, window.onmouseout = function () {
-                f.x = null, f.y = null
-            };
-            for (var t = [], p = 0; s.n > p; p++) {
-                var h = a() * r,
-                    g = a() * n,
-                    q = 2 * a() - 1,
-                    d = 2 * a() - 1;
-                t.push({
-                    x: h,
-                    y: g,
-                    xa: q,
-                    ya: d,
-                    max: 6000
-                })
-            }
-            setTimeout(function () {
-                b()
-            }, 100)
-        }();
-    </script>

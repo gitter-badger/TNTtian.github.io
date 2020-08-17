@@ -2239,13 +2239,13 @@ pre > span.copy-code:hover {
     }body {
       cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), default;
     }a {
-      cursor: pointer;
+      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), pointer !important;
     }input, textarea, code {
-      cursor: text;
+      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), text !important;
     }code > span.copy-code {
-      cursor: pointer;
+      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), text !important;
     }.post img {
-      cursor: zoom-in;
+      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), zoom-in !important;
     }.post img {
-      cursor: zoom-out;
+      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), zoom-out !important;
     }
