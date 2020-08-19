@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://TNTtian.github.io</id>
+    <id>https://qaq.luogugu.tk/</id>
     <title>Trotyl&apos;s House</title>
-    <updated>2020-08-18T06:15:27.742Z</updated>
+    <updated>2020-08-19T08:31:57.256Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://TNTtian.github.io"/>
-    <link rel="self" href="https://TNTtian.github.io/atom.xml"/>
+    <link rel="alternate" href="https://qaq.luogugu.tk/"/>
+    <link rel="self" href="https://qaq.luogugu.tk/atom.xml"/>
     <subtitle>向着自己的梦想，前进！
 </subtitle>
-    <logo>https://TNTtian.github.io/images/avatar.png</logo>
-    <icon>https://TNTtian.github.io/favicon.ico</icon>
+    <logo>https://qaq.luogugu.tk/images/avatar.png</logo>
+    <icon>https://qaq.luogugu.tk/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl&apos;s House</rights>
     <entry>
         <title type="html"><![CDATA[【题解】「P1504」积木城堡]]></title>
-        <id>https://TNTtian.github.io/solution-p1504/</id>
-        <link href="https://TNTtian.github.io/solution-p1504/">
+        <id>https://qaq.luogugu.tk/solution-p1504/</id>
+        <link href="https://qaq.luogugu.tk/solution-p1504/">
         </link>
         <updated>2020-07-09T03:19:35.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF675A」Infinite Sequence]]></title>
-        <id>https://TNTtian.github.io/solution-cf675a/</id>
-        <link href="https://TNTtian.github.io/solution-cf675a/">
+        <id>https://qaq.luogugu.tk/solution-cf675a/</id>
+        <link href="https://qaq.luogugu.tk/solution-cf675a/">
         </link>
         <updated>2020-07-09T03:17:59.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF1352A」Sum of Round Numbers]]></title>
-        <id>https://TNTtian.github.io/solution-cf1352a/</id>
-        <link href="https://TNTtian.github.io/solution-cf1352a/">
+        <id>https://qaq.luogugu.tk/solution-cf1352a/</id>
+        <link href="https://qaq.luogugu.tk/solution-cf1352a/">
         </link>
         <updated>2020-07-09T03:17:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF1182B」Plus from Picture]]></title>
-        <id>https://TNTtian.github.io/solution-cf1182b/</id>
-        <link href="https://TNTtian.github.io/solution-cf1182b/">
+        <id>https://qaq.luogugu.tk/solution-cf1182b/</id>
+        <link href="https://qaq.luogugu.tk/solution-cf1182b/">
         </link>
         <updated>2020-07-09T03:16:18.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF1373B」01 Game]]></title>
-        <id>https://TNTtian.github.io/solution-cf1373b/</id>
-        <link href="https://TNTtian.github.io/solution-cf1373b/">
+        <id>https://qaq.luogugu.tk/solution-cf1373b/</id>
+        <link href="https://qaq.luogugu.tk/solution-cf1373b/">
         </link>
         <updated>2020-07-09T03:15:15.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「UVA11626」Convex Hull]]></title>
-        <id>https://TNTtian.github.io/solution-uva11626/</id>
-        <link href="https://TNTtian.github.io/solution-uva11626/">
+        <id>https://qaq.luogugu.tk/solution-uva11626/</id>
+        <link href="https://qaq.luogugu.tk/solution-uva11626/">
         </link>
         <updated>2020-07-09T03:13:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「UVA1149」装箱 Bin Packing]]></title>
-        <id>https://TNTtian.github.io/solution-uva1149/</id>
-        <link href="https://TNTtian.github.io/solution-uva1149/">
+        <id>https://qaq.luogugu.tk/solution-uva1149/</id>
+        <link href="https://qaq.luogugu.tk/solution-uva1149/">
         </link>
         <updated>2020-07-09T03:12:01.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「SP34013」SEUG - Seetha’s Unique Game]]></title>
-        <id>https://TNTtian.github.io/solution-sp34013/</id>
-        <link href="https://TNTtian.github.io/solution-sp34013/">
+        <id>https://qaq.luogugu.tk/solution-sp34013/</id>
+        <link href="https://qaq.luogugu.tk/solution-sp34013/">
         </link>
         <updated>2020-07-09T03:10:34.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「SP867」CUBES - Perfect Cubes]]></title>
-        <id>https://TNTtian.github.io/solution-sp867/</id>
-        <link href="https://TNTtian.github.io/solution-sp867/">
+        <id>https://qaq.luogugu.tk/solution-sp867/</id>
+        <link href="https://qaq.luogugu.tk/solution-sp867/">
         </link>
         <updated>2020-07-09T03:09:44.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF363A」Soroban]]></title>
-        <id>https://TNTtian.github.io/solution-cf363a/</id>
-        <link href="https://TNTtian.github.io/solution-cf363a/">
+        <id>https://qaq.luogugu.tk/solution-cf363a/</id>
+        <link href="https://qaq.luogugu.tk/solution-cf363a/">
         </link>
         <updated>2020-07-09T02:50:57.000Z</updated>
     </entry>
