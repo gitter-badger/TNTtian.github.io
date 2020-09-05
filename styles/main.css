@@ -2133,7 +2133,7 @@ pre > span.copy-code:hover {
       border-bottom-color: #555;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #eeeeeecc;
+      background: #eeeeeeb2;
     }h1, h2, h3, h4, h5, h6 {
       color: #555;
     }
@@ -2179,10 +2179,10 @@ pre > span.copy-code:hover {
       }.nav-item a:hover {
         color: #222;
       }.nav-item-active {
-      background: #f9f9f9cc;
+      background: #f9f9f9b2;
     }
     .nav-item:hover {
-      background: #f9f9f9cc;
+      background: #f9f9f9b2;
       color: rgba(0, 0, 0, 0.98);
     }.site-author-image {
       border-radius: 50%;
@@ -2217,10 +2217,14 @@ pre > span.copy-code:hover {
     .active-hidden > a {
       color: #fc6423;
       border-bottom-color: #fc6423;
-    }.reward-btn-text {
-        background-color: #f03e3ecc !important;
-      }.bg-color {
-      background-color: #ffffffcc;
+    }.bg-color {
+      background-color: #ffffffb2;
+    }
+    .gemini .blog-header, .gemini .sidebar-wrapper, .gemini .article-wrapper, .gemini .post, .gemini .page, .gemini .section, .gemini .section-box, .gemini .sidebar-box, .gemini .friends-section {
+      border-radius: 15px;
+    }
+    .pisces .blog-header, .pisces .sidebar-wrapper, .pisces .article-wrapper, .pisces .section, .pisces .sidebar-box, .pisces .friends-section {
+      border-radius: 15px;
     }
     .site-meta {
       background: #000 !important;
@@ -2229,27 +2233,27 @@ pre > span.copy-code:hover {
       background: #000;
     }
     .brand {
-      background: #000000cc;
+      background: #000000b2;
     }
     .main-title, .brand {
       color: #FFF !important;
     }
     .mist .site-title i {
-      background: #FFFFFFcc;
+      background: #FFFFFFb2;
     }.box-scale > #landlord {
       transform: scale([0, 1]);
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), default;
+      cursor: default;
     }a {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), pointer !important;
+      cursor: pointer;
     }input, textarea, code {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), text !important;
+      cursor: text;
     }code > span.copy-code {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), text !important;
+      cursor: pointer;
     }.post img {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), zoom-in !important;
+      cursor: zoom-in;
     }.post img {
-      cursor: url('/media/curs/C:/Users/TSDstanlley/Documents/Gridea/themes/next/assets/media/curs/defaulf_link.cur.cur'), zoom-out !important;
+      cursor: zoom-out;
     }

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://qaq.luogugu.tk</id>
     <title>Trotyl&apos;s Blog</title>
-    <updated>2020-09-05T06:19:05.678Z</updated>
+    <updated>2020-09-05T07:21:20.788Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://qaq.luogugu.tk"/>
     <link rel="self" href="http://qaq.luogugu.tk/atom.xml"/>
@@ -11,6 +11,34 @@
     <logo>http://qaq.luogugu.tk/images/avatar.png</logo>
     <icon>http://qaq.luogugu.tk/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[【置顶】Trotyl's OI tree]]></title>
+        <id>http://qaq.luogugu.tk/Trotyl-OI-tree/</id>
+        <link href="http://qaq.luogugu.tk/Trotyl-OI-tree/">
+        </link>
+        <updated>2020-09-05T07:17:46.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「UVA10116」Robot Motion]]></title>
+        <id>http://qaq.luogugu.tk/solution-uva10116/</id>
+        <link href="http://qaq.luogugu.tk/solution-uva10116/">
+        </link>
+        <updated>2020-09-05T07:14:09.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】各省省选题解总集]]></title>
+        <id>http://qaq.luogugu.tk/solution-sheng-xuan/</id>
+        <link href="http://qaq.luogugu.tk/solution-sheng-xuan/">
+        </link>
+        <updated>2020-09-05T07:09:49.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「P6771」[USACO05MAR]Space Elevator 太空电梯]]></title>
+        <id>http://qaq.luogugu.tk/solution-p6771/</id>
+        <link href="http://qaq.luogugu.tk/solution-p6771/">
+        </link>
+        <updated>2020-09-05T07:03:00.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「P1504」积木城堡]]></title>
         <id>http://qaq.luogugu.tk/solution-p1504/</id>
@@ -52,33 +80,5 @@
         <link href="http://qaq.luogugu.tk/solution-uva11626/">
         </link>
         <updated>2020-07-09T03:13:00.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「UVA1149」装箱 Bin Packing]]></title>
-        <id>http://qaq.luogugu.tk/solution-uva1149/</id>
-        <link href="http://qaq.luogugu.tk/solution-uva1149/">
-        </link>
-        <updated>2020-07-09T03:12:01.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「SP34013」SEUG - Seetha’s Unique Game]]></title>
-        <id>http://qaq.luogugu.tk/solution-sp34013/</id>
-        <link href="http://qaq.luogugu.tk/solution-sp34013/">
-        </link>
-        <updated>2020-07-09T03:10:34.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「SP867」CUBES - Perfect Cubes]]></title>
-        <id>http://qaq.luogugu.tk/solution-sp867/</id>
-        <link href="http://qaq.luogugu.tk/solution-sp867/">
-        </link>
-        <updated>2020-07-09T03:09:44.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「CF363A」Soroban]]></title>
-        <id>http://qaq.luogugu.tk/solution-cf363a/</id>
-        <link href="http://qaq.luogugu.tk/solution-cf363a/">
-        </link>
-        <updated>2020-07-09T02:50:57.000Z</updated>
     </entry>
 </feed>
