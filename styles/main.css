@@ -2240,7 +2240,21 @@ pre > span.copy-code:hover {
     }
     .mist .site-title i {
       background: #FFFFFFb2;
-    }.box-scale > #landlord {
+    }body {
+    cursor: url('https://files-cdn.cnblogs.com/files/Xing-Ling/Aero_arrow.ico'),pointer;/*鼠标图案*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    color: #333;
+    background: url("https://images.cnblogs.com/cnblogs_com/Xing-Ling/1444635/o_191208121044fsd46g54g5sdg56sd.png") no-repeat;
+    background-position: 50%  calc(100% - 192px);
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-family: "Helvetica Neue", Helvetica,"Microsoft Yahei", "Hiragino Sans GB","Source Han Sans", "PingFang SC",Arial,"Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+.box-scale > #landlord {
       transform: scale([0, 1]);
     }.box-shadow-wrapper {
       box-shadow: none !important;
