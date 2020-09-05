@@ -109,8 +109,6 @@ h6 {
   line-height: 1.5;
 }
 body {
-  cursor: url('https://files-cdn.cnblogs.com/files/Xing-Ling/Aero_arrow.ico'), pointer;
-  /*鼠标图案*/
   height: 100%;
   box-sizing: border-box;
   margin: 0;
