@@ -2223,10 +2223,10 @@ pre > span.copy-code:hover {
       background-color: #ffffffb2;
     }
     .gemini .blog-header, .gemini .sidebar-wrapper, .gemini .article-wrapper, .gemini .post, .gemini .page, .gemini .section, .gemini .section-box, .gemini .sidebar-box, .gemini .friends-section {
-      border-radius: 15px;
+      border-radius: 10px;
     }
     .pisces .blog-header, .pisces .sidebar-wrapper, .pisces .article-wrapper, .pisces .section, .pisces .sidebar-box, .pisces .friends-section {
-      border-radius: 15px;
+      border-radius: 10px;
     }
     .site-meta {
       background: #000 !important;
@@ -2237,7 +2237,11 @@ pre > span.copy-code:hover {
     .brand {
       background: #000000b2;
     }
-    .main-title, .brand {
+    
+      .brand {
+        font-weight: bold;
+        transform: scale([1,4]);
+      }.main-title, .brand {
       color: #FFF !important;
     }
     .mist .site-title i {
