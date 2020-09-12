@@ -10,7 +10,7 @@
 ">
 <meta name="theme-color" content="#000">
 <title>Trotyl&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1599486415055">
+<link rel="shortcut icon" href="/favicon.ico?v=1599897485687">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -100,10 +100,23 @@
             
               
             
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
             <li class="nav-item ">
               
               
-                <a href="http://qaq.luogugu.tk/about/" target="_self">
+                <a href="/about/" target="_self">
                   <i class="fa fa-globe"></i> 关于
                 </a>
               
@@ -113,11 +126,11 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
-                <a href="/tags/" target="_self">
-                  <i class="fa fa-tags"></i> 标签
+                <a href="http://qaq.luogugu.tk/say/" target="_self">
+                  <i class="fa fa-globe"></i> 留言板
                 </a>
               
             </li>
@@ -191,19 +204,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">21</span>
+        <span class="site-item-stat-count">22</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">35</span>
+        <span class="site-item-stat-count">36</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">35</span>
+        <span class="site-item-stat-count">36</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -255,11 +268,32 @@
     });
   }
   </script>
+<!-- 一言 -->
+<div style="font-size: 1em; line-height: 1.5em;" id="hitokoto-content"> </div>
+<div style="text-align: right; margin-top: 10px; font-size: 0.9em;" id="hitokoto-from"> </div>
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn/?c=a')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var h_content = document.getElementById('hitokoto-content');
+      var h_from = document.getElementById('hitokoto-from');
+      h_content.innerText = data.hitokoto; 
+      h_from.innerText = "——" + data.from; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+<!--- 一言 end --->
         <div class="section-box box-shadow-wrapper">
           <section class="section tags-section bg-color posts-expand">
             <div class="tags-box">
-  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="35">
-    目前共计 35 个标签
+  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="36">
+    目前共计 36 个标签
   </div>
   <div class="tag-cloud-list" id="tags">
     
@@ -293,6 +327,8 @@
           
         
           
+        
+          
             
       
         
@@ -459,6 +495,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【杂文】工具，资料，备忘/" rel="2">【杂文】工具，资料，备忘</a>
@@ -522,6 +560,8 @@
         
           
         
+          
+        
       
         
           
@@ -687,6 +727,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/5drvUOZSg/" rel="2">置顶</a>
@@ -741,42 +783,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
             
@@ -785,16 +791,26 @@
           
         
           
-            
+        
+          
+        
+          
+        
+          
+        
       
         
           
         
           
-            
-      
         
           
+        
+          
+        
+          
+        
+      
         
           
         
@@ -819,6 +835,34 @@
           
         
           
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
         
           
         
@@ -880,6 +924,8 @@
         
           
             
+      
+        
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】模拟/" rel="9">【题解】模拟</a>
     
@@ -940,6 +986,8 @@
         
           
         
+          
+        
       
         
           
@@ -1099,6 +1147,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/4o0M9HaUw/" rel="4">UVA</a>
@@ -1161,16 +1211,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
         
           
             
@@ -1193,20 +1233,12 @@
           
         
           
-            
-      
-        
-          
-        
-          
         
           
         
           
             
       
-        
-          
         
           
         
@@ -1261,6 +1293,18 @@
           
         
           
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
             
       
         
@@ -1274,6 +1318,14 @@
         
           
         
+          
+        
+          
+            
+      
+        
+          
+        
       
         
           
@@ -1328,6 +1380,8 @@
         
           
             
+      
+        
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/DxgJicu9L/" rel="15">题解</a>
     
@@ -1517,7 +1571,9 @@
           
         
       
-      <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】合集/" rel="1">【题解】合集</a>
+        
+      
+      <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】剪枝/" rel="1">【题解】剪枝</a>
     
       
       
@@ -1705,6 +1761,202 @@
           
         
           
+        
+      
+        
+      
+      <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】合集/" rel="1">【题解】合集</a>
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】深度优先搜索，DFS/" rel="1">【题解】深度优先搜索，DFS</a>
@@ -1731,6 +1983,8 @@
           
         
           
+        
+          
             
       
         
@@ -1897,6 +2151,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】素数判断，质数，筛法/" rel="1">【题解】素数判断，质数，筛法</a>
@@ -1925,8 +2181,6 @@
           
         
           
-            
-      
         
           
             
@@ -1934,122 +2188,6 @@
         
           
             
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
         
           
@@ -2071,6 +2209,128 @@
           
         
           
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】动态规划，动规，dp/" rel="4">【题解】动态规划，动规，dp</a>
@@ -2101,6 +2361,8 @@
           
         
           
+        
+          
             
       
         
@@ -2267,6 +2529,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/LIQwu0Lz5/" rel="1">【题解】图的建立，建图</a>
@@ -2299,6 +2563,8 @@
           
         
           
+        
+          
             
       
         
@@ -2465,6 +2731,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/EmSziolWzq/" rel="1">【题解】数论，数学</a>
@@ -2499,26 +2767,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-            
-      
         
           
             
@@ -2532,6 +2780,28 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -2651,6 +2921,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/EaF9vUjmK6/" rel="4">【题解】枚举，暴力</a>
@@ -2689,6 +2961,8 @@
           
         
           
+        
+          
             
       
         
@@ -2855,6 +3129,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】容斥/" rel="1">【题解】容斥</a>
@@ -2895,6 +3171,8 @@
           
         
           
+        
+          
             
       
         
@@ -3061,6 +3339,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】搜索/" rel="1">【题解】搜索</a>
@@ -3103,6 +3383,8 @@
           
         
           
+        
+          
             
       
         
@@ -3269,6 +3551,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】随机函数/" rel="1">【题解】随机函数</a>
@@ -3313,6 +3597,8 @@
           
         
           
+        
+          
             
       
         
@@ -3479,6 +3765,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】组合数学/" rel="1">【题解】组合数学</a>
@@ -3525,6 +3813,8 @@
           
         
           
+        
+          
             
       
         
@@ -3691,6 +3981,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】最大流/" rel="1">【题解】最大流</a>
@@ -3739,6 +4031,8 @@
           
         
           
+        
+          
             
       
         
@@ -3905,6 +4199,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】最小割/" rel="1">【题解】最小割</a>
@@ -3955,84 +4251,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-            
-      
         
           
             
@@ -4044,24 +4262,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-        
           
         
           
@@ -4069,12 +4269,6 @@
       
         
           
-        
-          
-        
-          
-        
-      
         
           
         
@@ -4100,6 +4294,8 @@
         
           
         
+          
+        
       
         
           
@@ -4109,6 +4305,110 @@
           
         
           
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】贪心/" rel="3">【题解】贪心</a>
@@ -4161,70 +4461,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
         
           
             
@@ -4238,6 +4474,28 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -4256,15 +4514,15 @@
         
           
         
-      
-        
-          
-        
-          
-        
           
         
       
+        
+          
+        
+          
+        
+          
         
           
         
@@ -4280,6 +4538,50 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -4315,6 +4617,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】计算几何/" rel="3">【题解】计算几何</a>
@@ -4369,72 +4673,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
             
@@ -4448,6 +4686,28 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -4466,15 +4726,15 @@
         
           
         
-      
-        
-          
-        
-          
-        
           
         
       
+        
+          
+        
+          
+        
+          
         
           
         
@@ -4492,6 +4752,52 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -4527,6 +4833,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】凸包/" rel="3">【题解】凸包</a>
@@ -4583,50 +4891,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
         
           
             
@@ -4640,6 +4904,42 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            
       
         
           
@@ -4678,21 +4978,9 @@
         
           
         
-      
-        
-          
-        
-          
-        
           
         
       
-        
-          
-        
-      
-        
-          
         
           
         
@@ -4712,13 +5000,9 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
+        
+          
         
           
         
@@ -4743,6 +5027,34 @@
           
         
           
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】排序/" rel="2">【题解】排序</a>
@@ -4803,12 +5115,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
         
           
             
@@ -4827,6 +5133,34 @@
           
         
           
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
         
       
         
@@ -4876,26 +5210,6 @@
         
           
         
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
       
         
           
@@ -4961,6 +5275,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】背包/" rel="3">【题解】背包</a>
@@ -5024,6 +5340,8 @@
         
           
         
+          
+        
       
         
           
@@ -5178,6 +5496,8 @@
         
           
             
+      
+        
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/x5vzhdJRI/" rel="2">USACO</a>
     
@@ -5240,6 +5560,8 @@
         
           
         
+          
+        
       
         
           
@@ -5400,6 +5722,8 @@
         
           
             
+      
+        
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/qOI7MH3Fs/" rel="3">洛谷</a>
     
@@ -5462,16 +5786,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
       
@@ -5487,6 +5801,26 @@
           
         
       
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
         
           
         
@@ -5515,14 +5849,6 @@
           
         
           
-            
-      
-        
-          
-        
-          
-        
-          
         
           
         
@@ -5617,6 +5943,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/SvtMg-GVy/" rel="5">CF</a>
@@ -5680,6 +6008,8 @@
         
           
         
+          
+        
       
         
           
@@ -5833,6 +6163,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【题解】字符串/" rel="2">【题解】字符串</a>
@@ -5896,6 +6228,8 @@
         
           
         
+          
+        
       
         
           
@@ -6057,6 +6391,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/7Xgj5kpMy/" rel="2">SPOJ</a>
@@ -6120,6 +6456,8 @@
         
           
         
+          
+        
       
         
           
@@ -6281,6 +6619,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【笔记】凸包/" rel="1">【笔记】凸包</a>
@@ -6344,6 +6684,8 @@
         
           
         
+          
+        
       
         
           
@@ -6507,6 +6849,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【笔记】计算几何/" rel="1">【笔记】计算几何</a>
@@ -6570,16 +6914,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
       
@@ -6602,19 +6936,11 @@
         
           
         
-      
-        
-          
-        
-          
-        
           
         
           
         
       
-        
-          
         
           
         
@@ -6670,6 +6996,26 @@
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -6692,32 +7038,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-            
-      
-        
-          
-        
-          
-        
-          
-        
-          
-            
-      
-        
-          
-        
-          
-        
-          
-            
       
         
           
@@ -6735,6 +7055,34 @@
           
         
           
+            
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/D8ApTV0KL/" rel="4">笔记</a>
@@ -6798,16 +7146,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
       
@@ -6830,19 +7168,11 @@
         
           
         
-      
-        
-          
-        
-          
-        
           
         
           
         
       
-        
-          
         
           
         
@@ -6898,16 +7228,6 @@
         
           
         
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
           
         
       
@@ -6931,7 +7251,25 @@
       
         
           
-            
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -6952,7 +7290,21 @@
         
           
         
+      
+        
           
+            
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/【笔记】深度优先搜索，DFS/" rel="2">【笔记】深度优先搜索，DFS</a>
@@ -7016,6 +7368,8 @@
         
           
         
+          
+        
       
         
           
@@ -7177,6 +7531,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/uGZgKfO1E/" rel="1">【笔记】搜索</a>
@@ -7240,6 +7596,8 @@
         
           
         
+          
+        
       
         
           
@@ -7401,6 +7759,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/X_84NxE6V/" rel="2">【笔记】剪枝</a>
@@ -7464,6 +7824,8 @@
         
           
         
+          
+        
       
         
           
@@ -7627,6 +7989,8 @@
           
         
           
+        
+      
         
       
       <a class="cloud-tag" href="http://qaq.luogugu.tk/tag/5c1nIkydi/" rel="1">【笔记】背包</a>
@@ -11348,6 +11712,14 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;
 ">【题解】「P1518」 [USACO2.4]两只塔姆沃斯牛 The Tamworth Two</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="http://qaq.luogugu.tk/say/"" data-c="
+          &lt;p&gt;有什么想跟博主说的话都可以在这里说&lt;/p&gt;
+&lt;p&gt;&lt;s&gt;博主一般只看这里的说（&lt;/s&gt;&lt;/p&gt;
+&lt;p&gt;挂友链也可以再这里说qaq&lt;/p&gt;
+">【杂文】留言板</a>
       </div>
       
     </div>
