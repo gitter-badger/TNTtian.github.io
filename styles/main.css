@@ -2123,7 +2123,7 @@ pre > span.copy-code:hover {
       }
     
     .post-body {
-      font-size: 13px !important
+      font-size: 14px !important
     }
     body {
       color: #555;
@@ -2240,7 +2240,7 @@ pre > span.copy-code:hover {
     
       .brand {
         font-weight: bold;
-        transform: scale([1,4]);
+        transform: scale([1,3]);
       }.main-title, .brand {
       color: #FFF !important;
     }
