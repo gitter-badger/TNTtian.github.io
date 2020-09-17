@@ -2251,15 +2251,15 @@ pre > span.copy-code:hover {
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: default;
+      cursor: url('/media/curs/default-normal.cur'), default;
     }a {
-      cursor: pointer;
+      cursor: url('/media/curs/default-link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: text;
+      cursor: url('/media/curs/default-texto.cur'), text !important;
     }code > span.copy-code {
-      cursor: pointer;
+      cursor: url('/media/curs/default-texto.cur'), text !important;
     }.post img {
-      cursor: zoom-in;
+      cursor: url('/media/curs/default-zoomout.cur'), zoom-in !important;
     }.post img {
-      cursor: zoom-out;
+      cursor: url('/media/curs/default-vertical.cur'), zoom-out !important;
     }
