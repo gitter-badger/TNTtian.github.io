@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://blog.luogugu.tk</id>
     <title>Trotyl&apos;s Blog</title>
-    <updated>2020-09-19T05:45:25.610Z</updated>
+    <updated>2020-09-19T08:25:54.838Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://blog.luogugu.tk"/>
     <link rel="self" href="http://blog.luogugu.tk/atom.xml"/>
@@ -11,6 +11,13 @@
     <logo>http://blog.luogugu.tk/images/avatar.png</logo>
     <icon>http://blog.luogugu.tk/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[【题解】「N/A」[Cnoi2020]子弦]]></title>
+        <id>http://blog.luogugu.tk/solution-0000/</id>
+        <link href="http://blog.luogugu.tk/solution-0000/">
+        </link>
+        <updated>2020-09-19T08:02:34.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【置顶】Trotyl's OI tree]]></title>
         <id>http://blog.luogugu.tk/Trotyl-OI-tree/</id>
@@ -73,12 +80,5 @@
         <link href="http://blog.luogugu.tk/solution-cf1373b/">
         </link>
         <updated>2020-07-09T03:15:15.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「UVA11626」Convex Hull]]></title>
-        <id>http://blog.luogugu.tk/solution-uva11626/</id>
-        <link href="http://blog.luogugu.tk/solution-uva11626/">
-        </link>
-        <updated>2020-07-09T03:13:00.000Z</updated>
     </entry>
 </feed>
