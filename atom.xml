@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://blog.luogugu.tk</id>
     <title>Trotyl&apos;s Blog</title>
-    <updated>2020-09-19T08:25:54.838Z</updated>
+    <updated>2020-09-20T12:49:24.476Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://blog.luogugu.tk"/>
     <link rel="self" href="http://blog.luogugu.tk/atom.xml"/>
@@ -12,9 +12,16 @@
     <icon>http://blog.luogugu.tk/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[【题解】「N/A」[Cnoi2020]子弦]]></title>
-        <id>http://blog.luogugu.tk/solution-0000/</id>
-        <link href="http://blog.luogugu.tk/solution-0000/">
+        <title type="html"><![CDATA[【笔记】「计算几何」三维凸包]]></title>
+        <id>http://blog.luogugu.tk/notes-三维凸包/</id>
+        <link href="http://blog.luogugu.tk/notes-三维凸包/">
+        </link>
+        <updated>2020-09-20T09:55:13.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【题解】「P6832」[Cnoi2020]子弦]]></title>
+        <id>http://blog.luogugu.tk/solution-p6832/</id>
+        <link href="http://blog.luogugu.tk/solution-p6832/">
         </link>
         <updated>2020-09-19T08:02:34.000Z</updated>
     </entry>
@@ -73,12 +80,5 @@
         <link href="http://blog.luogugu.tk/solution-cf1182b/">
         </link>
         <updated>2020-07-09T03:16:18.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【题解】「CF1373B」01 Game]]></title>
-        <id>http://blog.luogugu.tk/solution-cf1373b/</id>
-        <link href="http://blog.luogugu.tk/solution-cf1373b/">
-        </link>
-        <updated>2020-07-09T03:15:15.000Z</updated>
     </entry>
 </feed>
