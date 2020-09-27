@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://blog.luogugu.tk</id>
+    <id>http://blog.trotyl.cf</id>
     <title>Trotyl&apos;s Blog</title>
-    <updated>2020-09-27T13:07:49.896Z</updated>
+    <updated>2020-09-27T13:09:07.039Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://blog.luogugu.tk"/>
-    <link rel="self" href="http://blog.luogugu.tk/atom.xml"/>
+    <link rel="alternate" href="http://blog.trotyl.cf"/>
+    <link rel="self" href="http://blog.trotyl.cf/atom.xml"/>
     <subtitle>Trotyl 的博客。
 </subtitle>
-    <logo>http://blog.luogugu.tk/images/avatar.png</logo>
-    <icon>http://blog.luogugu.tk/favicon.ico</icon>
+    <logo>http://blog.trotyl.cf/images/avatar.png</logo>
+    <icon>http://blog.trotyl.cf/favicon.ico</icon>
     <rights>All rights reserved 2020, Trotyl&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[【笔记】「计算几何」三维凸包]]></title>
-        <id>http://blog.luogugu.tk/notes-三维凸包/</id>
-        <link href="http://blog.luogugu.tk/notes-三维凸包/">
+        <id>http://blog.trotyl.cf/notes-三维凸包/</id>
+        <link href="http://blog.trotyl.cf/notes-三维凸包/">
         </link>
         <updated>2020-09-20T09:55:13.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「P6832」[Cnoi2020]子弦]]></title>
-        <id>http://blog.luogugu.tk/solution-p6832/</id>
-        <link href="http://blog.luogugu.tk/solution-p6832/">
+        <id>http://blog.trotyl.cf/solution-p6832/</id>
+        <link href="http://blog.trotyl.cf/solution-p6832/">
         </link>
         <updated>2020-09-19T08:02:34.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【置顶】Trotyl's OI tree]]></title>
-        <id>http://blog.luogugu.tk/Trotyl-OI-tree/</id>
-        <link href="http://blog.luogugu.tk/Trotyl-OI-tree/">
+        <id>http://blog.trotyl.cf/Trotyl-OI-tree/</id>
+        <link href="http://blog.trotyl.cf/Trotyl-OI-tree/">
         </link>
         <updated>2020-09-05T07:17:46.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「UVA10116」Robot Motion]]></title>
-        <id>http://blog.luogugu.tk/solution-uva10116/</id>
-        <link href="http://blog.luogugu.tk/solution-uva10116/">
+        <id>http://blog.trotyl.cf/solution-uva10116/</id>
+        <link href="http://blog.trotyl.cf/solution-uva10116/">
         </link>
         <updated>2020-09-05T07:14:09.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】各省省选题解总集]]></title>
-        <id>http://blog.luogugu.tk/solution-sheng-xuan/</id>
-        <link href="http://blog.luogugu.tk/solution-sheng-xuan/">
+        <id>http://blog.trotyl.cf/solution-sheng-xuan/</id>
+        <link href="http://blog.trotyl.cf/solution-sheng-xuan/">
         </link>
         <updated>2020-09-05T07:09:49.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「P6771」[USACO05MAR]Space Elevator 太空电梯]]></title>
-        <id>http://blog.luogugu.tk/solution-p6771/</id>
-        <link href="http://blog.luogugu.tk/solution-p6771/">
+        <id>http://blog.trotyl.cf/solution-p6771/</id>
+        <link href="http://blog.trotyl.cf/solution-p6771/">
         </link>
         <updated>2020-09-05T07:03:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「P1504」积木城堡]]></title>
-        <id>http://blog.luogugu.tk/solution-p1504/</id>
-        <link href="http://blog.luogugu.tk/solution-p1504/">
+        <id>http://blog.trotyl.cf/solution-p1504/</id>
+        <link href="http://blog.trotyl.cf/solution-p1504/">
         </link>
         <updated>2020-07-09T03:19:35.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF675A」Infinite Sequence]]></title>
-        <id>http://blog.luogugu.tk/solution-cf675a/</id>
-        <link href="http://blog.luogugu.tk/solution-cf675a/">
+        <id>http://blog.trotyl.cf/solution-cf675a/</id>
+        <link href="http://blog.trotyl.cf/solution-cf675a/">
         </link>
         <updated>2020-07-09T03:17:59.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF1352A」Sum of Round Numbers]]></title>
-        <id>http://blog.luogugu.tk/solution-cf1352a/</id>
-        <link href="http://blog.luogugu.tk/solution-cf1352a/">
+        <id>http://blog.trotyl.cf/solution-cf1352a/</id>
+        <link href="http://blog.trotyl.cf/solution-cf1352a/">
         </link>
         <updated>2020-07-09T03:17:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[【题解】「CF1182B」Plus from Picture]]></title>
-        <id>http://blog.luogugu.tk/solution-cf1182b/</id>
-        <link href="http://blog.luogugu.tk/solution-cf1182b/">
+        <id>http://blog.trotyl.cf/solution-cf1182b/</id>
+        <link href="http://blog.trotyl.cf/solution-cf1182b/">
         </link>
         <updated>2020-07-09T03:16:18.000Z</updated>
     </entry>
